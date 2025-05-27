@@ -1,0 +1,28 @@
+body {
+    height: 95vh;
+    width: 95;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(https://images.pexels.com/photos/12376845/pexels-photo-12376845.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size:700px;
+    
+    
+}
+h1 {
+    color: springgreen;
+    font-family: cursive;
+    
+    
+    
+}
+
+button {
+    background-color: antiquewhite;
+    font-size: 16px;
+   font-family: "Red Hat Display", sans-serif;
+   border-radius: 1000px;
+   
+   
+}
