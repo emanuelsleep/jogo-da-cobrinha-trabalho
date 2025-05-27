@@ -16,13 +16,27 @@ h1 {
     
     
     
+    
 }
 
-button {
-    background-color: antiquewhite;
-    font-size: 16px;
-   font-family: "Red Hat Display", sans-serif;
-   border-radius: 1000px;
+button{
    
-   
+    display: block;
+    margin: 20px auto 40px auto;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #27ae60;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(39, 174, 96, 0.6);
+    transition: background-color 0.3s ease;
 }
+  
+ 
+   
+  
+
+

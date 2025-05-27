@@ -62,6 +62,12 @@ function criarCobrinha() {
         contexto.beginPath();
         contexto.roundRect(snake[i].x, snake[i].y, caixa, caixa, 8);
         contexto.fill();
+
+        contexto.shadowColor = 'rgba(0,0,0,0.5)'; // Cor da sombra
+        contexto.shadowBlur = 10;                 // Nível de desfoque
+        contexto.shadowOffsetX = 4;               // Deslocamento horizontal
+        contexto.shadowOffsetY = 4;               // Deslocamento vertical
+
         
 
         // contexto.fillRect() = desenha um retangulo preenchido no canvas
@@ -102,6 +108,8 @@ function desenharComida(){
   contexto.quadraticCurveTo(folhaX + 6, folhaY - 10, folhaX + 12, folhaY); // curva pra cima
   contexto.quadraticCurveTo(folhaX + 6, folhaY - 6, folhaX, folhaY); // volta à base
   contexto.fill();
+
+  
 }
 
 
@@ -135,7 +143,22 @@ function atualizarDirecao(evento) {
           contexto.fill();
         }
       }
-      
+
+      function desenharFlor(x, y) {
+        contexto.fillStyle = "yellow";
+        contexto.beginPath();
+        contexto.arc(x, y, 4, 0, 2 * Math.PI); // miolo
+        contexto.fill();
+        contexto.fillStyle = "lightblue";
+        for (let i = 0; i < 5; i++) {
+            let angle = (i * 2 * Math.PI) / 5;
+            contexto.beginPath();
+            contexto.arc(x + Math.cos(angle) * 8, y + Math.sin(angle) * 8, 3, 0, 2 * Math.PI);
+            contexto.fill();
+        }
+    }
+    
+  
 
 function iniciarJogo() {
 // teletranportar a cobra ao ultrapassar as bordas
@@ -154,13 +177,13 @@ function iniciarJogo() {
             
         }
     }
-document.getElementById("reiniciar").addEventListener("click", function () {
+document.getElementById("#reiniciar").addEventListener("click", function () {
   clearInterval(jogo); // para o jogo atual
   location.reload();   // recarrega a página
 });
 
 
-    criarFundo();
+    criarFundo(); // aqui se chama a function 
 desenharMatinho(3 * caixa, 3 * caixa); // matinho no canto superior esquerdo
 desenharMatinho(12 * caixa, 12 * caixa); // matinho no canto inferior direito
 desenharMatinho(7 * caixa, 6 * caixa);
@@ -171,6 +194,14 @@ desenharMatinho(8 * caixa, 10 * caixa);
 desenharMatinho(10 * caixa, 5 * caixa);
 desenharMatinho(3 * caixa, 2 * caixa);
 desenharMatinho(2 * caixa, 7 * caixa);
+desenharFlor(4 * caixa, 7 * caixa); // flor 
+desenharFlor(10 * caixa, 10 * caixa);
+desenharFlor(6 * caixa, 12 * caixa);
+desenharFlor(6 * caixa, 2 * caixa);
+desenharFlor(15 * caixa, 5 * caixa);
+
+
+
     criarCobrinha();
     desenharComida();
 
